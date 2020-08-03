@@ -1,0 +1,17 @@
+.MemesWrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 5px;
+  }
+
+.MemesWrapper h3 {
+  margin: 0px
+}
+
+.MemeContainer {
+    width: 100px;
+    height: 100px;
+    border: 1px solid;
+    margin: 4px;
+}

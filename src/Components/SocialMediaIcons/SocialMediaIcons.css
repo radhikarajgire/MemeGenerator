@@ -1,0 +1,11 @@
+.SocialMediaWrapper {
+    display: flex;
+    border: 0;
+    outline: none;
+    border-radius: 4%;
+    font-size: 1rem;
+    font-weight: bold;
+    color: white;
+    transition: all.5s ease;
+    margin: 15px;
+}
