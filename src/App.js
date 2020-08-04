@@ -23,9 +23,9 @@ function App() {
           <div className="Panel">
             <EditorWrapper />
             <Buttons />                      
-          </div>
-          <MemesWrapper />                     
-        </div>      
+          </div>                              
+        </div>
+        <MemesWrapper />       
       </div>
       <Footer />   
     </div>
