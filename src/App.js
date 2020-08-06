@@ -1,38 +1,33 @@
 import React from 'react';
 
 import './App.css';
-import Button from "./Components/Button/Button"
-import ImageSmall from "./Components/ImageSmall/ImageSmall"
+
+import Header from "./Components/Header/Header"
+import Buttons from "./Components/Buttons/Buttons"
+import MemesWrapper from "./Components/MemesWrapper/MemesWrapper"
+import Footer from "./Components/Footer/Footer"
+import PreviewWrapper from './Components/PreviewWrapper/PreviewWrapper';
+import EditorWrapper from './Components/EditorWrapper/EditorWrapper';
+import SocialMediaIcons from './Components/SocialMediaIcons/SocialMediaIcons';
 
 function App() {
   return (
     <div className="App">
-      <div className="Header">Epic Meme Generator</div>
+      <Header />
       <div className="Main">
         <div className="PanelsWrapper">
-          <div className="Panel" style={{color: 'white'}}>Preview Panel</div>
           <div className="Panel">
-            <div className="InputWrapper">Space for Input Fields
-              <div className="TextInput"></div>
-              <div className="TextInput"></div>
-            </div>
-            <div className="ButtonWrapper">
-              <Button name="UPLOAD"/>
-              <Button name="GENERATE"/>
-              <Button name="EXPORT"/>
-            </div>            
-          </div>          
+            <PreviewWrapper />
+            <SocialMediaIcons />
+          </div>
+          <div className="Panel">
+            <EditorWrapper />
+            <Buttons />                      
+          </div>                              
         </div>
-        <div className="MemesWrapper">
-              <ImageSmall />
-              <ImageSmall />
-              <ImageSmall />
-              <ImageSmall />
-              <ImageSmall />
-              <ImageSmall />             
-        </div>
+        <MemesWrapper />       
       </div>
-      <div className="Footer"></div>    
+      <Footer />   
     </div>
   );
 }

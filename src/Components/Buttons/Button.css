@@ -2,12 +2,19 @@ button {
     display: flex;
     border: 0;
     outline: none;
-    border-radius: 4%;
-    padding: 15px;
+    border-radius: 5%;
+    padding: 10px;
     font-size: 1rem;
     font-weight: bold;
     background: #1ab188;
     color: white;
     transition: all.5s ease;
-    margin: 20px;
+    margin: 10px;
+}
+
+.ButtonWrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 12px;
 }
