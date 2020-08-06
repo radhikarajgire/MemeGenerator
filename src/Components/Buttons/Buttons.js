@@ -18,12 +18,9 @@ function Buttons() {
 
     return (
         <div className="ButtonWrapper">            
-            <form>
-                <input type="file"/>
-                <button type="submit">Upload</button>
-            </form>
+            <input type="file" class="custom-file-input" />
             <button onClick={clickGenerate}>Preview</button>
-            <button onClick={clickSave}>Save</button>
+            <button onClick={clickSave}>Download</button>
                       
         </div>
     )
