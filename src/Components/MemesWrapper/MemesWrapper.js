@@ -1,21 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import './MemesWrapper.css';
 import Meme from "../Meme/Meme"
+import {StateContext} from '../../context';
 
 
 function MemesWrapper() {
 
-    const [memes, setMemes] = useState([]);
-
-    useEffect(() => {
-        fetch("https://api.imgflip.com/get_memes")
-        .then(response => response.json())
-        .then(json => {
-        const fiveMemes = json.data.memes.slice(0,90);
-        setMemes(fiveMemes) 
-        })
-        .catch((error) => console.log(error.message));
-    })
+    const {memes} = useContext(StateContext);
 
      return (
         <div>

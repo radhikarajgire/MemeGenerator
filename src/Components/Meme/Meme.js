@@ -1,10 +1,15 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import './Meme.css';
+
+import {StateContext} from '../../context';
 
 
 function Meme(props) {
-    function clickHandler() {
-        console.log("clicked");
+
+    const {setSelectedMemeSrc} = useContext(StateContext);
+
+    function clickHandler(e) {
+        setSelectedMemeSrc(e.target.src);
     }
 
      return (
