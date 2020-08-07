@@ -4,10 +4,6 @@ import './Button.css' ;
 
 function Buttons() {
 
-    function clickUpload() {
-        console.log("Picture uploaded")
-    };
-
     function clickGenerate() {
         console.log("Picture uploaded")
     };
