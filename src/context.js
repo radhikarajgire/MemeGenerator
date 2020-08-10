@@ -8,6 +8,7 @@ const ContextProvider = ({ children }) => {
   const [selectedMemeSrc, setSelectedMemeSrc] = useState(null);
   const [currentMemeIdx, setCurrentMemeIdx] = useState(null);
   const [inputs, setInputs] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     fetch('https://api.imgflip.com/get_memes')
@@ -22,6 +23,8 @@ const ContextProvider = ({ children }) => {
   return (
     <StateContext.Provider
       value={{
+        loading,
+        setLoading,
         currentMemeIdx,
         setCurrentMemeIdx,
         inputs,

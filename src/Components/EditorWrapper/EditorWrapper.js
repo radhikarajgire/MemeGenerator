@@ -17,8 +17,13 @@ function EditorWrapper() {
 
   return (
     <div className="EditorWrapper">
-      {inputs.map((_, idx) => (
-        <input key={idx} type="text" onChange={(e) => updateInputs(e, idx)} />
+      {inputs.map((input, idx) => (
+        <input
+          key={idx}
+          type="text"
+          onChange={(e) => updateInputs(e, idx)}
+          value={input}
+        />
       ))}
     </div>
   );

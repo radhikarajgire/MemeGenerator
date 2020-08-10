@@ -11,6 +11,7 @@ function Buttons() {
     inputs,
     setInputs,
     setSelectedMemeSrc,
+    setLoading,
   } = useContext(StateContext);
 
   function onUpload(e) {
@@ -30,6 +31,7 @@ function Buttons() {
   };
 
   function clickGenerate() {
+    setLoading(true);
     const currentMeme = memes[currentMemeIdx];
 
     const obj = {
@@ -44,7 +46,10 @@ function Buttons() {
       method: 'POST',
     })
       .then((res) => res.json())
-      .then((res) => setSelectedMemeSrc(res.data.url));
+      .then((res) => {
+        setLoading(false);
+        setSelectedMemeSrc(res.data.url);
+      });
   }
 
   function onDownload() {
