@@ -11,7 +11,6 @@ function Buttons() {
     currentMemeIdx,
     inputs,
     setSelectedMemeSrc,
-    selectedMemeSrc,
     setLoading,
   } = useContext(StateContext);
 
