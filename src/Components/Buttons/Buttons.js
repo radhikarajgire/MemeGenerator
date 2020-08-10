@@ -6,6 +6,7 @@ import { StateContext } from '../../context';
 function Buttons() {
   const {
     setImgData,
+    imgData,
     memes,
     currentMemeIdx,
     inputs,
@@ -58,12 +59,21 @@ function Buttons() {
     <div className="ButtonWrapper">
       <input type="file" className="custom-file-input" onChange={onUpload} />
       <button
-        disabled={currentMemeIdx === null ? true : false}
+        disabled={
+          currentMemeIdx !== null ? false : imgData !== null ? false : true
+        }
         onClick={clickGenerate}
       >
         Preview
       </button>
-      <button onClick={onDownload}>Download</button>
+      <button
+        disabled={
+          currentMemeIdx !== null ? false : imgData !== null ? false : true
+        }
+        onClick={onDownload}
+      >
+        Download
+      </button>
     </div>
   );
 }
