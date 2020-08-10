@@ -1,13 +1,17 @@
-import React from "react"
-import "./EditorWrapper.css"
+import React, { useContext } from 'react';
+import './EditorWrapper.css';
+
+import { StateContext } from '../../context';
 
 function EditorWrapper() {
-    return(
-        <div className="EditorWrapper">Space for Input Fields
-            <div className="TextInput"></div>
-            <div className="TextInput"></div>
-        </div>
-    )
+  const { inputs } = useContext(StateContext);
+  return (
+    <div className="EditorWrapper">
+      {inputs.map((_, idx) => (
+        <input key={idx} type="text" />
+      ))}
+    </div>
+  );
 }
 
-export default EditorWrapper
+export default EditorWrapper;

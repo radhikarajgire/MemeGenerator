@@ -4,7 +4,9 @@ export const StateContext = createContext({});
 
 const ContextProvider = ({ children }) => {
   const [memes, setMemes] = useState([]);
+  const [imgData, setImgData] = useState(null);
   const [selectedMemeSrc, setSelectedMemeSrc] = useState(null);
+  const [inputs, setInputs] = useState([]);
 
   useEffect(() => {
     fetch('https://api.imgflip.com/get_memes')
@@ -15,10 +17,12 @@ const ContextProvider = ({ children }) => {
       })
       .catch((error) => console.log(error.message));
   }, []);
-  const [imgData, setImgData] = useState(null);
+
   return (
     <StateContext.Provider
       value={{
+        inputs,
+        setInputs,
         memes,
         selectedMemeSrc,
         setSelectedMemeSrc,

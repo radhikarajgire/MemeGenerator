@@ -27,7 +27,7 @@ function Buttons() {
 
   return (
     <div className="ButtonWrapper">
-      <input type="file" class="custom-file-input" onChange={onUpload} />
+      <input type="file" className="custom-file-input" onChange={onUpload} />
       <button onClick={clickGenerate}>Preview</button>
       <button onClick={onDownload}>Download</button>
     </div>
