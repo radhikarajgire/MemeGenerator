@@ -9,7 +9,7 @@ function PreviewWrapper() {
 
     return (
       <div className="PreviewWrapper">
-        {<img src={imgData ? imgData : selectedMemeSrc} alt="selected meme" />}
+        {<img src={imgData ? imgData : selectedMemeSrc} />}
       </div>
     );
 }

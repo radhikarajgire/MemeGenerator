@@ -25,15 +25,15 @@ function Buttons() {
         console.log("Picture generated")
     };
 
-    function clickSave() {
-        console.log("Picture saved")
+    function onDownload() {
+        console.log("Picture downloaded")
     };
 
     return (
         <div className="ButtonWrapper">            
             <input type="file" class="custom-file-input" onChange={onUpload} />
             <button onClick={clickGenerate}>Preview</button>
-            <button onClick={clickSave}>Download</button>
+            <button onClick={onDownload}>Download</button>
                       
         </div>
     )

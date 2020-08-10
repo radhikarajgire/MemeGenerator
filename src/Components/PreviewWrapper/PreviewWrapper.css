@@ -7,11 +7,16 @@
     max-width: 550px;
     max-height: 600px;
     margin-top: 20px;
+    color: transparent;
     background-color: white;
+    
 }    
 
 .PreviewWrapper img {
     width: 95%;
     height: 95%;
     object-fit: contain;
+    text-indent:-9999px;
+    border: none;
 }
+

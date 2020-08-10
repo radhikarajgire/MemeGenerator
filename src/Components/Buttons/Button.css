@@ -9,6 +9,7 @@ button {
     background: #1ab188;
     color: white;
     transition: all.5s ease;
+    cursor: pointer;
     margin: 10px;
 }
 
@@ -28,7 +29,7 @@ button {
   .custom-file-input::-webkit-file-upload-button {
     visibility: hidden;
   }
-  
+
   .custom-file-input::before {
     content: 'Upload file';
     color: white;
