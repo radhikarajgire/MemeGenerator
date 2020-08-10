@@ -1,22 +1,21 @@
-import React, {useContext} from 'react';
+import React, { useContext } from 'react';
 import './Meme.css';
 
-import {StateContext} from '../../context';
-
+import { StateContext } from '../../context';
 
 function Meme(props) {
+  const { setSelectedMemeSrc, setImgData } = useContext(StateContext);
 
-    const {setSelectedMemeSrc} = useContext(StateContext);
+  function clickHandler(e) {
+    setImgData(null);
+    setSelectedMemeSrc(e.target.src);
+  }
 
-    function clickHandler(e) {
-        setSelectedMemeSrc(e.target.src);
-    }
-
-     return (
-            <div className='MemeContainer'>
-                <img onClick={clickHandler} src={props.pic} alt="meme" />
-            </div>               
-     )
+  return (
+    <div className="MemeContainer">
+      <img onClick={clickHandler} src={props.pic} alt="meme" />
+    </div>
+  );
 }
 
 export default Meme;
