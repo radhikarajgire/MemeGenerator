@@ -5,10 +5,11 @@ import {StateContext} from '../../context';
 
 function PreviewWrapper() {
     const {selectedMemeSrc} = useContext(StateContext);
+    const {imgData} = useContext(StateContext);
 
     return (
       <div className="PreviewWrapper">
-        {selectedMemeSrc && <img src={selectedMemeSrc} alt="selected meme" />}
+        {<img src={imgData ? imgData : selectedMemeSrc} alt="selected meme" />}
       </div>
     );
 }

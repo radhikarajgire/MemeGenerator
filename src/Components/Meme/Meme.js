@@ -14,7 +14,7 @@ function Meme(props) {
 
      return (
             <div className='MemeContainer'>
-                <img onClick={clickHandler} src={props.pic} />
+                <img onClick={clickHandler} src={props.pic} alt="meme" />
             </div>               
      )
 }

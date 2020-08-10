@@ -14,10 +14,12 @@ const ContextProvider = ({ children }) => {
         setMemes(allMemes);
       })
       .catch((error) => console.log(error.message));
-  });
-
+  }
+    
+  );
+  const [imgData, setImgData] = useState(null); 
   return (
-    <StateContext.Provider value={{ memes, selectedMemeSrc, setSelectedMemeSrc }}>
+    <StateContext.Provider value={{ memes, selectedMemeSrc, setSelectedMemeSrc, imgData, setImgData }}>
       {children}
     </StateContext.Provider>
   );

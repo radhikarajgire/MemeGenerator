@@ -28,6 +28,7 @@ button {
   .custom-file-input::-webkit-file-upload-button {
     visibility: hidden;
   }
+  
   .custom-file-input::before {
     content: 'Upload file';
     color: white;
