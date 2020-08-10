@@ -1,20 +1,18 @@
-import React, { useState, useContext } from 'react';
+import React, { useContext } from 'react';
 
 import './Button.css';
 import { StateContext } from '../../context';
 
 function Buttons() {
-  const [picture, setPicture] = useState(null);
-  const { imgData, setImgData } = useContext(StateContext);
+  const { setImgData } = useContext(StateContext);
 
   function onUpload(e) {
     if (e.target.files[0]) {
-      setPicture(e.target.files[0]);
       const reader = new FileReader();
+      reader.readAsDataURL(e.target.files[0]);
       reader.addEventListener('load', () => {
         setImgData(reader.result);
       });
-      reader.readAsDataURL(e.target.files[0]);
       console.log('data recorded');
     }
   }

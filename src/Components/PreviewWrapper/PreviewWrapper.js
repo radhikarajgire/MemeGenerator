@@ -1,17 +1,17 @@
-import React, {useContext} from "react"
+import React, { useContext } from 'react';
 
-import "./PreviewWrapper.css"
-import {StateContext} from '../../context';
+import './PreviewWrapper.css';
+import { StateContext } from '../../context';
 
 function PreviewWrapper() {
-    const {selectedMemeSrc} = useContext(StateContext);
-    const {imgData} = useContext(StateContext);
+  const { selectedMemeSrc } = useContext(StateContext);
+  const { imgData } = useContext(StateContext);
 
-    return (
-      <div className="PreviewWrapper">
-        {<img src={imgData ? imgData : selectedMemeSrc} />}
-      </div>
-    );
+  return (
+    <div className="PreviewWrapper">
+      {<img alt="meme" src={imgData ? imgData : selectedMemeSrc} />}
+    </div>
+  );
 }
 
-export default PreviewWrapper
+export default PreviewWrapper;
