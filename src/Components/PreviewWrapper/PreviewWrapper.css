@@ -20,3 +20,6 @@
     border: none;
 }
 
+.PreviewWrapper img:not([src]) {
+    visibility: hidden;
+ }
