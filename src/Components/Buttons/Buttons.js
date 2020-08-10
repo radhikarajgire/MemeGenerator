@@ -9,7 +9,6 @@ function Buttons() {
     memes,
     currentMemeIdx,
     inputs,
-    setInputs,
     setSelectedMemeSrc,
     setLoading,
   } = useContext(StateContext);
@@ -40,7 +39,6 @@ function Buttons() {
       template_id: currentMeme.id,
     };
     const arr = inputs.map((v, idx) => `boxes[${idx}][text]=${v}`).join('&');
-    const clearedInputs = inputs.map((v) => '');
 
     fetch(`https://api.imgflip.com/caption_image${querifyObj(obj)}&${arr}`, {
       method: 'POST',
@@ -48,7 +46,7 @@ function Buttons() {
       .then((res) => res.json())
       .then((res) => {
         setLoading(false);
-        setSelectedMemeSrc(res.data.url);
+        if (res.data) setSelectedMemeSrc(res.data.url);
       });
   }
 
@@ -59,7 +57,12 @@ function Buttons() {
   return (
     <div className="ButtonWrapper">
       <input type="file" className="custom-file-input" onChange={onUpload} />
-      <button onClick={clickGenerate}>Preview</button>
+      <button
+        disabled={currentMemeIdx === null ? true : false}
+        onClick={clickGenerate}
+      >
+        Preview
+      </button>
       <button onClick={onDownload}>Download</button>
     </div>
   );
