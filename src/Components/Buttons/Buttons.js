@@ -11,6 +11,7 @@ function Buttons() {
     currentMemeIdx,
     inputs,
     setSelectedMemeSrc,
+    selectedMemeSrc,
     setLoading,
   } = useContext(StateContext);
 
@@ -52,7 +53,7 @@ function Buttons() {
   }
 
   function onDownload() {
-    console.log('Picture downloaded');
+    console.log('downloading');
   }
 
   return (
