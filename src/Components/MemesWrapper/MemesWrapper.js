@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import './MemesWrapper.css';
 import Meme from '../Meme/Meme';
 import { StateContext } from '../../context';
+import Loader from 'react-loader-spinner';
 
 function MemesWrapper() {
   const { memes } = useContext(StateContext);
@@ -11,9 +12,13 @@ function MemesWrapper() {
       <h3>Select meme</h3>
       <div className="MemeCollection">
         <div className="MemesWrapper">
-          {memes.map((meme, idx) => (
-            <Meme key={idx} pic={meme.url} idx={idx} />
-          ))}
+          {memes.length >= 90 ? (
+            memes.map((meme, idx) => (
+              <Meme key={idx} pic={meme.url} idx={idx} />
+            ))
+          ) : (
+            <Loader type="Circles" color="#1ab188" height={150} width={150} />
+          )}
         </div>
       </div>
     </div>
