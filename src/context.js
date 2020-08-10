@@ -6,6 +6,7 @@ const ContextProvider = ({ children }) => {
   const [memes, setMemes] = useState([]);
   const [imgData, setImgData] = useState(null);
   const [selectedMemeSrc, setSelectedMemeSrc] = useState(null);
+  const [currentMemeIdx, setCurrentMemeIdx] = useState(null);
   const [inputs, setInputs] = useState([]);
 
   useEffect(() => {
@@ -21,6 +22,8 @@ const ContextProvider = ({ children }) => {
   return (
     <StateContext.Provider
       value={{
+        currentMemeIdx,
+        setCurrentMemeIdx,
         inputs,
         setInputs,
         memes,

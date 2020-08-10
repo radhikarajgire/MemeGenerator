@@ -4,7 +4,14 @@ import './Button.css';
 import { StateContext } from '../../context';
 
 function Buttons() {
-  const { setImgData } = useContext(StateContext);
+  const {
+    setImgData,
+    memes,
+    currentMemeIdx,
+    inputs,
+    setInputs,
+    setSelectedMemeSrc,
+  } = useContext(StateContext);
 
   function onUpload(e) {
     if (e.target.files[0]) {
@@ -17,8 +24,27 @@ function Buttons() {
     }
   }
 
+  const querifyObj = (obj) => {
+    const params = Object.entries(obj).map(([key, value]) => `${key}=${value}`);
+    return '?' + params.join('&');
+  };
+
   function clickGenerate() {
-    console.log('Picture generated');
+    const currentMeme = memes[currentMemeIdx];
+
+    const obj = {
+      username: 'Beerios',
+      password: 'letmeusethis',
+      template_id: currentMeme.id,
+    };
+    const arr = inputs.map((v, idx) => `boxes[${idx}][text]=${v}`).join('&');
+    const clearedInputs = inputs.map((v) => '');
+
+    fetch(`https://api.imgflip.com/caption_image${querifyObj(obj)}&${arr}`, {
+      method: 'POST',
+    })
+      .then((res) => res.json())
+      .then((res) => setSelectedMemeSrc(res.data.url));
   }
 
   function onDownload() {

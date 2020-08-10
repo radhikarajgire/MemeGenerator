@@ -4,13 +4,18 @@ import './Meme.css';
 import { StateContext } from '../../context';
 
 function Meme(props) {
-  const { setSelectedMemeSrc, setImgData, memes, setInputs } = useContext(
-    StateContext
-  );
+  const {
+    setSelectedMemeSrc,
+    setImgData,
+    memes,
+    setInputs,
+    setCurrentMemeIdx,
+  } = useContext(StateContext);
 
   function clickHandler(e) {
     setImgData(null);
     setSelectedMemeSrc(e.target.src);
+    setCurrentMemeIdx(props.idx);
     setInputs(Array(memes[props.idx].box_count).fill(''));
   }
 
