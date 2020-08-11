@@ -8,4 +8,5 @@
     color: white;
     transition: all.5s ease;
     margin: 15px;
+    justify-content: space-evenly;
 }

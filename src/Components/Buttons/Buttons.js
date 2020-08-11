@@ -68,7 +68,7 @@ function Buttons() {
             currentMemeIdx !== null ? false : imgData !== null ? false : true
           }
         >
-          Download
+          Share
         </button>
         </a>
         <div id="popup1" class="overlay">

@@ -8,14 +8,14 @@ function SocialMediaIcons() {
       <Twitter
         name={'Twitter'}
         link="https://www.twitter.com"
-        style={{ backgroundColor: '#1ab188' }}
+        style={{ backgroundColor: '#21aa93' }}
       />
       <Facebook
         link="https://www.facebook.com"
-        style={{ backgroundColor: '#1ab188' }}
+        style={{ backgroundColor: '#21aa93' }}
       />
-      <Whatsapp style={{ backgroundColor: '#1ab188' }} />
-      <Reddit style={{ backgroundColor: '#1ab188' }} />
+      <Whatsapp style={{ backgroundColor: '#21aa93' }} />
+      <Reddit style={{ backgroundColor: '#21aa93' }} />
     </div>
   );
 }

@@ -8,8 +8,8 @@ function MemesWrapper() {
   const { memes } = useContext(StateContext);
 
   return (
-    <div>
-      <h3>Select meme</h3>
+    <div className="MemesSection">
+      Choose Popular Memes
       <div className="MemeCollection">
         <div className="MemesWrapper">
           {memes.length >= 90 ? (
