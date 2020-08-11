@@ -34,6 +34,7 @@ function Buttons() {
     reader.readAsDataURL(e.target.files[0]);
     reader.addEventListener('load', () => {
       setImgData(reader.result);
+      setSelectedMemeSrc(null);
       upload.current.value = '';
     });
     setInputs(['', '']);
@@ -76,9 +77,7 @@ function Buttons() {
         onChange={onUpload}
       />
       <button
-        disabled={
-          currentMemeIdx !== null ? false : imgData !== null ? false : true
-        }
+        disabled={selectedMemeSrc !== null ? false : true}
         onClick={() => {
           if (!imgData) clickGenerate();
           if (selectedMemeSrc) clickGenerate();
@@ -89,9 +88,7 @@ function Buttons() {
 
       <button
         onClick={() => setOpenModal(true)}
-        disabled={
-          currentMemeIdx !== null ? false : imgData !== null ? false : true
-        }
+        disabled={selectedMemeSrc !== null ? false : true}
       >
         Share
       </button>
