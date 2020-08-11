@@ -21,7 +21,6 @@ function Buttons() {
       reader.addEventListener('load', () => {
         setImgData(reader.result);
       });
-      console.log('data recorded');
     }
   }
 

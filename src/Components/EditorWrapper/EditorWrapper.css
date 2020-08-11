@@ -3,7 +3,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #effcef;
+
   height: 90%;
   width: 90%;
   margin-top: 20px;
@@ -17,8 +17,9 @@
 .EditorWrapper input {
   font-size: 1rem;
   box-sizing: border-box;
-  padding: 10px;
+  padding: 5px;
   height: 40px;
   width: 75%;
   border-radius: 5px;
 }
+
