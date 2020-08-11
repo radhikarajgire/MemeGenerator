@@ -1,4 +1,5 @@
 import React, { useContext, useState, useRef, useEffect } from 'react';
+import {SocialIcon} from "react-social-icons"
 
 import './Button.css';
 import { StateContext } from '../../context';
@@ -97,7 +98,7 @@ function Buttons() {
       {openModal && (
         <div className="overlay">
           <div className="popup">
-            <h2>Share link</h2>
+            <h2>Shared link</h2>
             <span onClick={() => setOpenModal(false)} className="close">
               &times;
             </span>
@@ -107,6 +108,13 @@ function Buttons() {
               className="content"
               value={selectedMemeSrc}
             />
+            <div className="SocialIconsWrapper">
+              <SocialIcon network="twitter" url="https://twitter.com" target="_blank" style={{margin: 5}} />
+              <SocialIcon network="facebook" url="https://facebook.com" target="_blank" style={{margin: 5}} />
+              <SocialIcon network="whatsapp" url="https://whatsapp.com" target="_blank" style={{margin: 5}} />
+              <SocialIcon network="instagram" url="https://instagram.com" target="_blank" style={{margin: 5}} />
+              <SocialIcon network="pinterest" url="https://pinterest.com" target="_blank" style={{margin: 5}} />              
+            </div>
           </div>
         </div>
       )}

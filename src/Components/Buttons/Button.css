@@ -73,14 +73,18 @@ button:disabled {
   transition: opacity 500ms;
   visibility: visible;
   opacity: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .popup {
-  margin: 70px auto;
+  margin: 50px auto;
   padding: 30px;
-  background: #fff;
+  background: #E0F2F1;
   border-radius: 5px;
   width: 30%;
+  height: 16%;
   position: relative;
   transition: all 5s ease-in-out;
 }
@@ -88,7 +92,7 @@ button:disabled {
 .popup h2 {
   margin-top: 0;
   color: #333;
-  font-family: Tahoma, Arial, sans-serif;
+  font-weight: bold;
 }
 
 .popup .close {
@@ -110,4 +114,16 @@ button:disabled {
 .popup .content {
   max-height: 30%;
   overflow: auto;
+}
+
+.content input {
+  width: 500px;
+  margin: 20px;
+}
+
+.SocialMediaWrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  height: 100px;
 }

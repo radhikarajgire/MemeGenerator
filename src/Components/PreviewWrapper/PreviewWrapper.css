@@ -2,15 +2,14 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 500px;
-    width: 500px;
-    max-width: 550px;
+    height: 600px;
+    width: 600px;
+    max-width: 600px;
     max-height: 600px;
-    margin-top: 20px;
     color: transparent;
     background-color: white;
     border-radius: 5px;
-    color: blue;
+    margin: 10px;
 }    
 
 .PreviewWrapper img {
@@ -25,8 +24,9 @@
     visibility: hidden;
  }
 
- @media screen and (max-width: 600px) {
-     .PreviewWrapper{
+ @media screen and (max-width: 800px) {
+    .PreviewWrapper{
          width: 400px;
-     }
+         max-width: 400px;
+    }
  }
