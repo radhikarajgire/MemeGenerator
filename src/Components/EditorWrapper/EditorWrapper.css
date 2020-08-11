@@ -3,11 +3,11 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: white;
+  background-color: #eeeeee;
   height: 90%;
   width: 90%;
-  background-color: white;
   margin-top: 20px;
+  border-radius: 5px;
 }
 
 .EditorWrapper * + * {
@@ -15,7 +15,7 @@
 }
 
 .EditorWrapper input {
-  font-size: 1.2rem;
+  font-size: 1rem;
   box-sizing: border-box;
   padding: 10px;
   height: 40px;

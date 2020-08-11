@@ -51,10 +51,6 @@ function Buttons() {
       });
   }
 
-  function onDownload() {
-    console.log('downloading');
-  }
-
   return (
     <div className="ButtonWrapper">
       <input type="file" className="custom-file-input" onChange={onUpload} />
@@ -66,14 +62,24 @@ function Buttons() {
       >
         Preview
       </button>
-      <button
-        disabled={
-          currentMemeIdx !== null ? false : imgData !== null ? false : true
-        }
-        onClick={onDownload}
-      >
-        Download
-      </button>
+      <a href="#popup1">
+        <button
+          disabled={
+            currentMemeIdx !== null ? false : imgData !== null ? false : true
+          }
+        >
+          Download
+        </button>
+        </a>
+        <div id="popup1" class="overlay">
+          <div class="popup">
+            <h2>Shared link</h2>
+            <a class="close" href="#">&times;</a>
+            <div class="content">
+              www.linkofmeme.com
+            </div>
+          </div>
+        </div>
     </div>
   );
 }
