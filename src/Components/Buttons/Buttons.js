@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useRef, useEffect } from 'react';
 
 import './Button.css';
 import { StateContext } from '../../context';
@@ -11,6 +11,7 @@ function Buttons() {
     currentMemeIdx,
     inputs,
     setSelectedMemeSrc,
+    selectedMemeSrc,
     setLoading,
   } = useContext(StateContext);
 
@@ -47,6 +48,7 @@ function Buttons() {
       .then((res) => {
         setLoading(false);
         if (res.data) setSelectedMemeSrc(res.data.url);
+        console.log(res.data.url);
       });
   }
 
@@ -69,16 +71,16 @@ function Buttons() {
         >
           Share
         </button>
-        </a>
-        <div id="popup1" class="overlay">
-          <div class="popup">
-            <h2>Shared link</h2>
-            <a class="close" href="#">&times;</a>
-            <div class="content">
-              www.linkofmeme.com
-            </div>
-          </div>
+      </a>
+      <div id="popup1" className="overlay">
+        <div className="popup">
+          <h2>Shared link</h2>
+          <a className="close" href="#">
+            &times;
+          </a>
+          <input className="content" value={selectedMemeSrc} />
         </div>
+      </div>
     </div>
   );
 }
