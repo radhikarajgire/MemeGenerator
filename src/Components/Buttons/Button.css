@@ -22,7 +22,6 @@ button:disabled {
   flex-direction: row;
   justify-content: center;
   margin: 10px;
-  width: 400px;
 }
 
 .ButtonWrapper a {

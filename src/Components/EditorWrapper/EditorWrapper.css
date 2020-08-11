@@ -3,9 +3,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
   height: 90%;
-  width: 90%;
+  width: 80%;
   margin-top: 20px;
   border-radius: 5px;
 }
@@ -17,6 +16,7 @@
 .EditorWrapper input {
   font-size: 1rem;
   box-sizing: border-box;
+  border: none;
   padding: 5px;
   height: 40px;
   width: 75%;

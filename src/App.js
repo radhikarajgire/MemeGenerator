@@ -16,11 +16,11 @@ function App() {
       <Header />
       <div className="Main">
         <div className="PanelsWrapper">
-          <div className="Panel" style={{width: 600}}>
+          <div className="Panel">
             <PreviewWrapper />
             <SocialMediaIcons />
           </div>
-          <div className="Panel" style={{width: 400}}>
+          <div className="Panel">
             <EditorWrapper />
             <Buttons />                      
           </div>                              
