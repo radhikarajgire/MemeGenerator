@@ -71,11 +71,6 @@ button:disabled {
   right: 0;
   background: rgba(0, 0, 0, 0.7);
   transition: opacity 500ms;
-  visibility: hidden;
-  opacity: 0;
-}
-
-.overlay:target {
   visibility: visible;
   opacity: 1;
 }
@@ -108,7 +103,8 @@ button:disabled {
 }
 
 .popup .close:hover {
-  color: #06D85F;
+  color: #21aa93;
+  cursor: pointer;
 }
 
 .popup .content {

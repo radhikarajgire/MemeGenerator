@@ -18,10 +18,12 @@ function EditorWrapper() {
   return (
     <div className="EditorWrapper">
       {inputs.map((input, idx) => (
-      <input
+        <input
           key={idx}
           type="text"
-          onChange={(e) => updateInputs(e, idx)}
+          onChange={(e) => {
+            updateInputs(e, idx);
+          }}
           value={input}
           placeholder="Enter text"
         />

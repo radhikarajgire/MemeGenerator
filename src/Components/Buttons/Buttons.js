@@ -1,15 +1,17 @@
-import React, { useContext, useRef, useEffect } from 'react';
+import React, { useContext, useState } from 'react';
 
 import './Button.css';
 import { StateContext } from '../../context';
 
 function Buttons() {
+  const [openModal, setOpenModal] = useState(false);
   const {
     setImgData,
     imgData,
     memes,
     currentMemeIdx,
     inputs,
+    setInputs,
     setSelectedMemeSrc,
     selectedMemeSrc,
     setLoading,
@@ -23,6 +25,7 @@ function Buttons() {
         setImgData(reader.result);
       });
     }
+    setInputs(['', '']);
   }
 
   const querifyObj = (obj) => {
@@ -41,15 +44,16 @@ function Buttons() {
     };
     const arr = inputs.map((v, idx) => `boxes[${idx}][text]=${v}`).join('&');
 
-    fetch(`https://api.imgflip.com/caption_image${querifyObj(obj)}&${arr}`, {
-      method: 'POST',
-    })
-      .then((res) => res.json())
-      .then((res) => {
-        setLoading(false);
-        if (res.data) setSelectedMemeSrc(res.data.url);
-        console.log(res.data.url);
-      });
+    if (inputs) {
+      fetch(`https://api.imgflip.com/caption_image${querifyObj(obj)}&${arr}`, {
+        method: 'POST',
+      })
+        .then((res) => res.json())
+        .then((res) => {
+          setLoading(false);
+          if (res.data) setSelectedMemeSrc(res.data.url);
+        });
+    }
   }
 
   return (
@@ -61,26 +65,28 @@ function Buttons() {
         }
         onClick={clickGenerate}
       >
-        Preview
+        Generate
       </button>
-      <a href="#popup1">
-        <button
-          disabled={
-            currentMemeIdx !== null ? false : imgData !== null ? false : true
-          }
-        >
-          Share
-        </button>
-      </a>
-      <div id="popup1" className="overlay">
-        <div className="popup">
-          <h2>Shared link</h2>
-          <a className="close" href="#">
-            &times;
-          </a>
-          <input className="content" value={selectedMemeSrc} />
+
+      <button
+        onClick={() => setOpenModal(true)}
+        disabled={
+          currentMemeIdx !== null ? false : imgData !== null ? false : true
+        }
+      >
+        Share
+      </button>
+      {openModal && (
+        <div className="overlay">
+          <div className="popup">
+            <h2>Shared link</h2>
+            <span onClick={() => setOpenModal(false)} className="close">
+              &times;
+            </span>
+            <input className="content" value={selectedMemeSrc} />
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 }

@@ -8,7 +8,6 @@ import MemesWrapper from './Components/MemesWrapper/MemesWrapper';
 import Footer from './Components/Footer/Footer';
 import PreviewWrapper from './Components/PreviewWrapper/PreviewWrapper';
 import EditorWrapper from './Components/EditorWrapper/EditorWrapper';
-import SocialMediaIcons from './Components/SocialMediaIcons/SocialMediaIcons';
 
 function App() {
   return (
@@ -18,7 +17,6 @@ function App() {
         <div className="PanelsWrapper">
           <div className="Panel">
             <PreviewWrapper />
-            <SocialMediaIcons />
           </div>
           <div className="Panel">
             <EditorWrapper />
