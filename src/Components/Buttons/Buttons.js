@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useRef, useEffect } from 'react';
 
 import './Button.css';
 import { StateContext } from '../../context';
@@ -17,14 +17,24 @@ function Buttons() {
     setLoading,
   } = useContext(StateContext);
 
-  function onUpload(e) {
-    if (e.target.files[0]) {
-      const reader = new FileReader();
-      reader.readAsDataURL(e.target.files[0]);
-      reader.addEventListener('load', () => {
-        setImgData(reader.result);
-      });
+  const ref = useRef();
+  const upload = useRef();
+
+  useEffect(() => {
+    if (openModal) {
+      ref.current.focus();
+      ref.current.select();
     }
+  }, [openModal]);
+
+  const reader = new FileReader();
+
+  function onUpload(e) {
+    reader.readAsDataURL(e.target.files[0]);
+    reader.addEventListener('load', () => {
+      setImgData(reader.result);
+      upload.current.value = '';
+    });
     setInputs(['', '']);
   }
 
@@ -58,12 +68,20 @@ function Buttons() {
 
   return (
     <div className="ButtonWrapper">
-      <input type="file" className="custom-file-input" onChange={onUpload} />
+      <input
+        type="file"
+        ref={upload}
+        className="custom-file-input"
+        onChange={onUpload}
+      />
       <button
         disabled={
           currentMemeIdx !== null ? false : imgData !== null ? false : true
         }
-        onClick={clickGenerate}
+        onClick={() => {
+          if (!imgData) clickGenerate();
+          if (selectedMemeSrc) clickGenerate();
+        }}
       >
         Generate
       </button>
@@ -79,11 +97,16 @@ function Buttons() {
       {openModal && (
         <div className="overlay">
           <div className="popup">
-            <h2>Shared link</h2>
+            <h2>Share link</h2>
             <span onClick={() => setOpenModal(false)} className="close">
               &times;
             </span>
-            <input className="content" value={selectedMemeSrc} />
+            <input
+              ref={ref}
+              style={{ width: '70%', textAlign: 'center' }}
+              className="content"
+              value={selectedMemeSrc}
+            />
           </div>
         </div>
       )}
