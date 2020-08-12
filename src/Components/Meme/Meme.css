@@ -6,6 +6,10 @@
     margin: 3px;
 }
 
+.MemesSection {
+    margin-bottom: 30px;
+}
+
 img {
     width: 100%;
     object-fit: cover;

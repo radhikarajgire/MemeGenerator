@@ -1,0 +1,13 @@
+.footer {
+  padding: 20px;
+  background-color: #092532;
+  color:#E0F2F1;
+}
+
+.footer a {
+  color: #21aa93;
+}
+
+.footer a:hover {
+  opacity: .6;
+}

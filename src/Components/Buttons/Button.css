@@ -80,11 +80,15 @@ button:disabled {
 
 .popup {
   margin: 50px auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   padding: 30px;
   background: #E0F2F1;
   border-radius: 5px;
   width: 30%;
-  height: 16%;
+  height: 20%;
   position: relative;
   transition: all 5s ease-in-out;
 }

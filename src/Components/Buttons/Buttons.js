@@ -4,22 +4,24 @@ import {SocialIcon} from "react-social-icons"
 import './Button.css';
 import { StateContext } from '../../context';
 
+// code that is commented out is for the future upload feature
+
 function Buttons() {
   const [openModal, setOpenModal] = useState(false);
   const {
-    setImgData,
+    // setImgData,
     imgData,
     memes,
     currentMemeIdx,
     inputs,
-    setInputs,
+    // setInputs,
     setSelectedMemeSrc,
     selectedMemeSrc,
     setLoading,
   } = useContext(StateContext);
 
   const ref = useRef();
-  const upload = useRef();
+  // const upload = useRef();
 
   useEffect(() => {
     if (openModal) {
@@ -28,17 +30,17 @@ function Buttons() {
     }
   }, [openModal]);
 
-  const reader = new FileReader();
+  // const reader = new FileReader();
 
-  function onUpload(e) {
-    reader.readAsDataURL(e.target.files[0]);
-    reader.addEventListener('load', () => {
-      setImgData(reader.result);
-      setSelectedMemeSrc(null);
-      upload.current.value = '';
-    });
-    setInputs(['', '']);
-  }
+  // function onUpload(e) {
+  //   reader.readAsDataURL(e.target.files[0]);
+  //   reader.addEventListener('load', () => {
+  //     setImgData(reader.result);
+  //     setSelectedMemeSrc(null);
+  //     upload.current.value = '';
+  //   });
+  //   setInputs(['', '']);
+  // }
 
   const querifyObj = (obj) => {
     const params = Object.entries(obj).map(([key, value]) => `${key}=${value}`);
@@ -56,7 +58,7 @@ function Buttons() {
     };
     const arr = inputs.map((v, idx) => `boxes[${idx}][text]=${v}`).join('&');
 
-    if (inputs) {
+    
       fetch(`https://api.imgflip.com/caption_image${querifyObj(obj)}&${arr}`, {
         method: 'POST',
       })
@@ -65,17 +67,16 @@ function Buttons() {
           setLoading(false);
           if (res.data) setSelectedMemeSrc(res.data.url);
         });
-    }
   }
 
   return (
     <div className="ButtonWrapper">
-      <input
+      {/* <input
         type="file"
         ref={upload}
         className="custom-file-input"
         onChange={onUpload}
-      />
+      /> */}
       <button
         disabled={selectedMemeSrc !== null ? false : true}
         onClick={() => {
@@ -95,7 +96,7 @@ function Buttons() {
       {openModal && (
         <div className="overlay">
           <div className="popup">
-            <h2>Shared link</h2>
+            <h2>Share</h2>
             <span onClick={() => setOpenModal(false)} className="close">
               &times;
             </span>
@@ -106,11 +107,10 @@ function Buttons() {
               value={selectedMemeSrc}
             />
             <div className="SocialIconsWrapper">
-              <SocialIcon network="twitter" url="https://twitter.com" target="_blank" style={{margin: 5}} />
-              <SocialIcon network="facebook" url="https://facebook.com" target="_blank" style={{margin: 5}} />
-              <SocialIcon network="whatsapp" url="https://whatsapp.com" target="_blank" style={{margin: 5}} />
+              <SocialIcon network="twitter" url={`http://twitter.com/share?text=${"Check This Out!"}&url=${selectedMemeSrc}` } target="_blank" style={{margin: 5}} />
+              <SocialIcon network="facebook" url={`http://www.facebook.com/sharer.php?u=${selectedMemeSrc}`}  target="_blank" style={{margin: 5}} />
               <SocialIcon network="instagram" url="https://instagram.com" target="_blank" style={{margin: 5}} />
-              <SocialIcon network="pinterest" url="https://pinterest.com" target="_blank" style={{margin: 5}} />              
+              <SocialIcon network="pinterest" url={`http://pinterest.com/pin/create/button/?url=${selectedMemeSrc}&description=${"Check This Out!"}`} target="_blank" style={{margin: 5}} />              
             </div>
           </div>
         </div>
